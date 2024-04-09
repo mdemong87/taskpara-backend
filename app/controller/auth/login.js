@@ -1,4 +1,5 @@
 const { User } = require('../../model/schemaANDmodel');
+const ConnectDB = require('../../model/connectDB');
 const jwt = require('jsonwebtoken');
 // const bcrypt = require('bcrypt');
 
@@ -9,6 +10,7 @@ async function loginController(req, res) {
     try {
         const { email, pass } = req.body;
 
+        ConnectDB();
 
         //find the user
         const userData = await User.find({});
