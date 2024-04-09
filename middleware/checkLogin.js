@@ -3,6 +3,11 @@ const jwt = require('jsonwebtoken');
 function chechLogin(req, res, next) {
 
 
+
+    console.log(req.cookies);
+    console.log(req.signedCookies);
+
+
     const cookie = req.headers; // Accessing the 'Cookie' header
     const tokenValue = cookie.cookievalue;
 
