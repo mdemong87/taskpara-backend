@@ -56,41 +56,41 @@ const getSingleTask = async (req, res) => {
 
 
 
-// //post task
-// const postTask = async (req, res) => {
+//post task
+const postTask = async (req, res) => {
 
-//     const userId = req.userId;
-//     const { title, priority, stage, dis } = req.body;
+    const userId = req.userId;
+    const { title, priority, stage, dis } = req.body;
 
-//     try {
-//         const taskData = {
-//             userId,
-//             title,
-//             priority,
-//             stage,
-//             dis
-//         }
-
-
-//         //save the task in the database
-//         const created = await Task.create(taskData);
+    try {
+        const taskData = {
+            userId,
+            title,
+            priority,
+            stage,
+            dis
+        }
 
 
-//         //response back in frontend
-//         res.status(200).json({
-//             success: true,
-//             data: created,
-//             message: 'Task Created Successfull',
-//         });
+        //save the task in the database
+        const created = await Task.create(taskData);
 
 
-//     } catch (error) {
-//         res.status(500).json({
-//             success: false,
-//             message: 'Task Created Failed',
-//         });
-//     }
-// }
+        //response back in frontend
+        res.status(200).json({
+            success: true,
+            data: created,
+            message: 'Task Created Successfull',
+        });
+
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Task Created Failed',
+        });
+    }
+}
 
 
 
@@ -161,7 +161,7 @@ const getSingleTask = async (req, res) => {
 
 module.exports = {
     getTask,
-    // postTask,
+    postTask,
     // updateTask,
     // deleteTask,
     getSingleTask

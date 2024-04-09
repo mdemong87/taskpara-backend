@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // const { getTask, postTask, updateTask, deleteTask, getSingleTask } = require("../../controller/task/taskController");
 // const checkLogin = require("../../../middleware/checkLogin");
-const { getTask, getSingleTask } = require("../../controller/task/taskController");
+const { getTask, getSingleTask, postTask } = require("../../controller/task/taskController");
 
 
 
@@ -13,10 +13,8 @@ router.get('/app/task', getTask);
 router.get('/app/task/:id', getSingleTask);
 
 
-
-
-// //app route POST request
-// router.post('/app/task', postTask);
+//app route POST request
+router.post('/app/task', postTask);
 
 
 
