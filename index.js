@@ -57,31 +57,23 @@ app.use(errorhandleing);
 
 
 
+// connect database
+await mongoose.connect(process.env.NEXT_PUBLIC_DATABASE_URL, (err) => {
+    if (!err) {
+        console.log("db is connected");
 
-//connection the database
-async function ConnectDB() {
-
-    // connect database
-    await mongoose.connect(process.env.NEXT_PUBLIC_DATABASE_URL, (err) => {
-        if (!err) {
-            console.log("db is connected");
-
-            //application listen on port 3000
-            app.listen(PORT, (err) => {
-                if (err) {
-                    console.log("Got an error while listening the server")
-                } else {
-                    console.log(`Server ready on port ${PORT}`)
-                }
-            });
-        } else {
-            console.log('db is not connected');
-        }
-    });
-}
-
-//call the database connention function
-ConnectDB();
+        //application listen on port 3000
+        app.listen(PORT, (err) => {
+            if (err) {
+                console.log("Got an error while listening the server")
+            } else {
+                console.log(`Server ready on port ${PORT}`)
+            }
+        });
+    } else {
+        console.log('db is not connected');
+    }
+});
 
 
 
