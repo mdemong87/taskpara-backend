@@ -1,6 +1,7 @@
 // const bcrypt = require('bcrypt');
 const { User } = require('../../model/schemaANDmodel');
 const uId = require('../../../helper/uniqueId');
+const ConnectDB = require('../../model/connectDB');
 
 async function registerController(req, res) {
 
@@ -24,6 +25,9 @@ async function registerController(req, res) {
          country: country,
          password: pass,
       }
+
+      //connected Data
+      ConnectDB();
 
       //insert data into the database
       await User.create(userObject, (err) => {
