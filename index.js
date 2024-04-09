@@ -30,6 +30,10 @@ app.use("/", taskRoute);
 app.use("/auth", authentication);
 
 
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
+
 //default error handling function
 const errorhandleing = (err, req, res, next) => {
     res.status(500).json({
