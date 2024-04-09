@@ -16,11 +16,14 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({
-    origin: process.env.NEXT_PUBLIC_FRONTEND_URL, // Specify the allowed origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true, // Allow credentials (cookies)
-}));
+
+const corsConfig = {
+    origin: process.env.NEXT_PUBLIC_FRONTEND_URL,,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}
+app.use(cors(corsConfig))
+app.options("", cors(corsConfig))
 
 
 // //app route initialization
