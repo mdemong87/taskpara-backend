@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const dotenv = require('dotenv');
+
+//internal import
 const taskRoute = require("./app/routes/task/taskRoute");
 const authentication = require("./app/routes/auth/index");
 
@@ -32,8 +34,8 @@ app.use("/", taskRoute);
 
 
 //"bcrypt": "^5.1.1",
-// //auth route initilization
-// app.use("/auth", authentication);
+//auth route initilization
+app.use("/auth", authentication);
 
 
 

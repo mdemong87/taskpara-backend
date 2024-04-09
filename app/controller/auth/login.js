@@ -2,6 +2,7 @@ const { User } = require('../../model/schemaANDmodel');
 const jwt = require('jsonwebtoken');
 // const bcrypt = require('bcrypt');
 
+
 async function loginController(req, res) {
 
 
