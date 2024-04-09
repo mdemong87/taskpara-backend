@@ -58,7 +58,7 @@ app.use(errorhandleing);
 
 
 // connect database
-await mongoose.connect(process.env.NEXT_PUBLIC_DATABASE_URL, (err) => {
+mongoose.connect(process.env.NEXT_PUBLIC_DATABASE_URL, (err) => {
     if (!err) {
         console.log("db is connected");
 
