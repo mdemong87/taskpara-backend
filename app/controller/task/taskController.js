@@ -4,18 +4,13 @@ const { Task } = require('../../model/schemaANDmodel');
 //get task
 const getTask = async (req, res) => {
 
-    const userId = req.userId;
-    const email = req.email;
+    // const userId = req.userId;
+    // const email = req.email;
 
     try {
 
 
         const task = await Task.find({});
-
-
-        // const allTask = {
-
-        // }
 
         res.status(200).json({
             success: true,
@@ -34,128 +29,128 @@ const getTask = async (req, res) => {
 
 
 
-//post task
-const postTask = async (req, res) => {
+// //post task
+// const postTask = async (req, res) => {
 
-    const userId = req.userId;
-    const { title, priority, stage, dis } = req.body;
+//     const userId = req.userId;
+//     const { title, priority, stage, dis } = req.body;
 
-    try {
-        const taskData = {
-            userId,
-            title,
-            priority,
-            stage,
-            dis
-        }
-
-
-        //save the task in the database
-        const created = await Task.create(taskData);
+//     try {
+//         const taskData = {
+//             userId,
+//             title,
+//             priority,
+//             stage,
+//             dis
+//         }
 
 
-        //response back in frontend
-        res.status(200).json({
-            success: true,
-            data: created,
-            message: 'Task Created Successfull',
-        });
+//         //save the task in the database
+//         const created = await Task.create(taskData);
 
 
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Task Created Failed',
-        });
-    }
-}
+//         //response back in frontend
+//         res.status(200).json({
+//             success: true,
+//             data: created,
+//             message: 'Task Created Successfull',
+//         });
 
 
-
-
-//get single task
-const getSingleTask = async (req, res) => {
-
-    const { id } = req.params;
-
-
-    try {
-
-
-        const task = await Task.findOne({ _id: id });
-
-        res.status(200).json({
-            success: true,
-            data: task,
-            message: 'Get Single Task Successfull',
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Getting Single Task Failed',
-        });
-    }
-
-}
+//     } catch (error) {
+//         res.status(500).json({
+//             success: false,
+//             message: 'Task Created Failed',
+//         });
+//     }
+// }
 
 
 
 
-//update task
-const updateTask = async (req, res) => {
+// //get single task
+// const getSingleTask = async (req, res) => {
+
+//     const { id } = req.params;
 
 
-    const { id } = req.params;
+//     try {
 
 
-    console.log(id);
+//         const task = await Task.findOne({ _id: id });
 
-    try {
+//         res.status(200).json({
+//             success: true,
+//             data: task,
+//             message: 'Get Single Task Successfull',
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             success: false,
+//             message: 'Getting Single Task Failed',
+//         });
+//     }
 
-
-        const task = await Task.findOne({ _id: id });
-
-        res.status(200).json({
-            success: true,
-            data: task,
-            message: 'Update Task Successfull',
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Update Task Failed',
-        });
-    }
-}
+// }
 
 
 
 
-//delete task
-const deleteTask = async (req, res) => {
-
-    const { id } = req.params;
+// //update task
+// const updateTask = async (req, res) => {
 
 
-    console.log(id);
-
-    try {
+//     const { id } = req.params;
 
 
-        const task = await Task.findOne({ _id: id });
+//     console.log(id);
 
-        res.status(200).json({
-            success: true,
-            data: task,
-            message: 'Update Task Successfull',
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Update Task Failed',
-        });
-    }
-}
+//     try {
+
+
+//         const task = await Task.findOne({ _id: id });
+
+//         res.status(200).json({
+//             success: true,
+//             data: task,
+//             message: 'Update Task Successfull',
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             success: false,
+//             message: 'Update Task Failed',
+//         });
+//     }
+// }
+
+
+
+
+// //delete task
+// const deleteTask = async (req, res) => {
+
+//     const { id } = req.params;
+
+
+//     console.log(id);
+
+//     try {
+
+
+//         const task = await Task.findOne({ _id: id });
+
+//         res.status(200).json({
+//             success: true,
+//             data: task,
+//             message: 'Update Task Successfull',
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             success: false,
+//             message: 'Update Task Failed',
+//         });
+//     }
+// }
 
 
 
@@ -164,8 +159,8 @@ const deleteTask = async (req, res) => {
 
 module.exports = {
     getTask,
-    postTask,
-    updateTask,
-    deleteTask,
-    getSingleTask
+    // postTask,
+    // updateTask,
+    // deleteTask,
+    // getSingleTask
 };

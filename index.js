@@ -26,8 +26,11 @@ app.use(cors(corsConfig))
 app.options("", cors(corsConfig))
 
 
-// //app route initialization
-// app.use("/", taskRoute);
+//app route initialization
+app.use("/", taskRoute);
+
+
+
 //"bcrypt": "^5.1.1",
 // //auth route initilization
 // app.use("/auth", authentication);
