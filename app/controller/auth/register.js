@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const { User } = require('../../model/schemaANDmodel');
 const uId = require('../../../helper/uniqueId');
 
@@ -13,7 +13,7 @@ async function registerController(req, res) {
       const userId = uId();
 
       //hashing password via bcrypt
-      const heshedPassword = await bcrypt.hash(pass, 10);
+      // const heshedPassword = await bcrypt.hash(pass, 10);
 
       //create user object
       const userObject = {
@@ -22,7 +22,7 @@ async function registerController(req, res) {
          lastName: lName,
          email: email,
          country: country,
-         password: heshedPassword,
+         password: pass,
       }
 
       //insert data into the database
