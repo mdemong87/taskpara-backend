@@ -27,6 +27,33 @@ const getTask = async (req, res) => {
 }
 
 
+//get single task
+const getSingleTask = async (req, res) => {
+
+    const { id } = req.params;
+
+
+    try {
+
+
+        const task = await Task.findOne({ _id: id });
+
+        res.status(200).json({
+            success: true,
+            data: task,
+            message: 'Get Single Task Successfull',
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Getting Single Task Failed',
+        });
+    }
+
+}
+
+
+
 
 
 // //post task
@@ -67,31 +94,6 @@ const getTask = async (req, res) => {
 
 
 
-
-// //get single task
-// const getSingleTask = async (req, res) => {
-
-//     const { id } = req.params;
-
-
-//     try {
-
-
-//         const task = await Task.findOne({ _id: id });
-
-//         res.status(200).json({
-//             success: true,
-//             data: task,
-//             message: 'Get Single Task Successfull',
-//         });
-//     } catch (error) {
-//         res.status(500).json({
-//             success: false,
-//             message: 'Getting Single Task Failed',
-//         });
-//     }
-
-// }
 
 
 
@@ -162,5 +164,5 @@ module.exports = {
     // postTask,
     // updateTask,
     // deleteTask,
-    // getSingleTask
+    getSingleTask
 };

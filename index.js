@@ -40,7 +40,7 @@ app.use("/", taskRoute);
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
-        message: "Express app on the vercel"
+        message: "Task Management Software Server in Runnign"
     })
 });
 
