@@ -34,7 +34,12 @@ app.options("", cors(corsConfig))
 
 
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Express app on the vercel"
+    })
+});
 
 
 //default error handling function
