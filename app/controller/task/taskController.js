@@ -112,8 +112,6 @@ const updateTask = async (req, res) => {
         dis
     }
 
-
-    console.log(id);
     try {
 
         const updatedtask = await Task.findByIdAndUpdate(id, updatetaskData, { new: true });
