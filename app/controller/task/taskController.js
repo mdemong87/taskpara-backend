@@ -98,61 +98,62 @@ const postTask = async (req, res) => {
 
 
 
-// //update task
-// const updateTask = async (req, res) => {
+//update task
+const updateTask = async (req, res) => {
 
 
-//     const { id } = req.params;
+    const { id } = req.params;
+    const { title, priority, stage, dis } = req.body;
+
+    const updatetaskData = {
+        title,
+        priority,
+        stage,
+        dis
+    }
+
+    try {
+
+        const updatedtask = await Task.findByIdAndUpdate(id, updatetaskData, { new: true });
+
+        res.status(200).json({
+            success: true,
+            data: updatedtask,
+            message: 'Update Task Successfull',
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Update Task Failed',
+        });
+    }
+}
 
 
-//     console.log(id);
-
-//     try {
 
 
-//         const task = await Task.findOne({ _id: id });
+//delete task
+const deleteTask = async (req, res) => {
 
-//         res.status(200).json({
-//             success: true,
-//             data: task,
-//             message: 'Update Task Successfull',
-//         });
-//     } catch (error) {
-//         res.status(500).json({
-//             success: false,
-//             message: 'Update Task Failed',
-//         });
-//     }
-// }
+    const { id } = req.params;
 
+    try {
 
+        const deletedTask = await Task.deleteOne({ _id: id });
 
-
-// //delete task
-// const deleteTask = async (req, res) => {
-
-//     const { id } = req.params;
-
-
-//     console.log(id);
-
-//     try {
-
-
-//         const task = await Task.findOne({ _id: id });
-
-//         res.status(200).json({
-//             success: true,
-//             data: task,
-//             message: 'Update Task Successfull',
-//         });
-//     } catch (error) {
-//         res.status(500).json({
-//             success: false,
-//             message: 'Update Task Failed',
-//         });
-//     }
-// }
+        if (deletedTask) {
+            res.status(200).json({
+                success: true,
+                message: 'Delete Task Successfull',
+            });
+        }
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Delete Task Failed',
+        });
+    }
+}
 
 
 
@@ -162,7 +163,7 @@ const postTask = async (req, res) => {
 module.exports = {
     getTask,
     postTask,
-    // updateTask,
-    // deleteTask,
+    updateTask,
+    deleteTask,
     getSingleTask
 };
